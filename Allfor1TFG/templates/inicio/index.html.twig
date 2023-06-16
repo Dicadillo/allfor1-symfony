@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <!-- Encabezado -->
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <div>
+      <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-auto ">
+    </div>
+    <!-- Descripción -->
+    <div>
+      <p>Aquí va tu descripción</p>
+    </div>
+  </div>
+
+  <!-- Título de nuestros servicios -->
+  <h2 class="text-2xl font-bold mt-8">Nuestros servicios</h2>
+
+  <!-- Actividades -->
+  <div class="grid grid-cols-3 gap-8 mt-4">
+    <!-- Futbol -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <img src="{{ asset('images/futbol.jpg') }}" alt="Futbol" class="h-32 w-5/12">
+      <h3 class="text-xl font-bold mt-4">Fútbol</h3>
+      <p>Duración: X horas</p>
+      <p>Precio: X euros</p>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
+    </div>
+
+    <!-- Tenis -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <img src="{{ asset('images/tenis.jpg') }}" alt="Tenis" class="h-32 w-auto">
+      <h3 class="text-xl font-bold mt-4">Tenis</h3>
+      <p>Duración: X horas</p>
+      <p>Precio: X euros</p>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
+    </div>
+
+    <!-- Baloncesto -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <img src="{{ asset('images/baloncesto.jpg') }}" alt="Baloncesto" class="h-32 w-auto">
+      <h3 class="text-xl font-bold mt-4">Baloncesto</h3>
+      <p>Duración: X horas</p>
+      <p>Precio: X euros</p>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
+    </div>
+  </div>
+
+  <!-- Calendario -->
+  <div class="mt-8">
+    <!-- Aquí va el código para mostrar el calendario -->
+  </div>
+{% endblock %}
