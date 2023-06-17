@@ -2,19 +2,18 @@
 
 {% block content %}
   <!-- Encabezado -->
-  <div class="flex justify-center items-center">
-    <!-- Logo -->
-    <div>
-      <img src="{{ asset('images/allfor1-bg-black.png') }}" alt="Logo" class="h-1/5 w-1/2">
-    </div>
-    <!-- Descripción -->
-    <div>
-      <p class="bg-red-600 text" rgb="">"Allfor1 es una empresa joven y ambiciosa que busca conectar a personas con la misma pasión por los deportes. Nos enorgullece ser parte de una comunidad deportiva activa y diversa en la ciudad. Creemos en el poder de las relaciones humanas y la importancia de mantenerse físicamente activo, y es por eso que trabajamos incansablemente para proporcionar una plataforma fácil de usar para que la gente pueda encontrar compañeros de entrenamiento y organizar actividades deportivas en la ciudad. Únete a nosotros en la misión de hacer de la ciudad un lugar más activo y saludable."</p>
-    </div>
+<div class="flex justify-center items-center">
+  <!-- Logo -->
+  <div class="rounded-lg p-4">
+    <img src="{{ asset('images/allfor1-bg-black.png') }}" alt="Logo" class="h-1/5 w-1/2">
   </div>
-
+  <!-- Descripción -->
+  <div class="rounded-lg p-4 bg-red-600">
+    <p style="color: white;">"Allfor1 es una empresa joven y ambiciosa que busca conectar a personas con la misma pasión por los deportes. Nos enorgullece ser parte de una comunidad deportiva activa y diversa en la ciudad. Creemos en el poder de las relaciones humanas y la importancia de mantenerse físicamente activo, y es por eso que trabajamos incansablemente para proporcionar una plataforma fácil de usar para que la gente pueda encontrar compañeros de entrenamiento y organizar actividades deportivas en la ciudad. Únete a nosotros en la misión de hacer de la ciudad un lugar más activo y saludable."</p>
+  </div>
+</div>
   <!-- Título de nuestros servicios -->
-  <h2 class="text-2xl font-bold mt-8">Nuestros servicios</h2>
+  <h2 class="text-2xl font-bold mt-8 "align="center" >Nuestros servicios</h2>
 
   <!-- Actividades -->
   <div class="grid grid-cols-3 gap-8 mt-4">
@@ -22,16 +21,16 @@
     <div class="bg-white rounded-lg shadow p-4">
       <img src="{{ asset('images/futbol.jpg') }}" alt="Futbol" class="h-32 w-5/12">
       <h3 class="text-xl font-bold mt-4">Fútbol</h3>
-      <p>Duración: X horas</p>
-      <p>Precio: X euros</p>
+      <p>Duración:  `$get->$horas_futbol_activities`</p>
+      <p>Precio: `$get->price_futbol_activities` euros</p>
       <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
     </div>
 
     <!-- Tenis -->
     <div class="bg-white rounded-lg shadow p-4">
-      <img src="{{ asset('images/tenis.jpg') }}" alt="Tenis" class="h-32 w-auto">
+      <img src="{{ asset('images/tenis.jpg') }}" alt="Tenis" class="h-32 w-auto margi">
       <h3 class="text-xl font-bold mt-4">Tenis</h3>
-      <p>Duración: X horas</p>
+      <p>Duración: `$get->$horas_tenis_activities` horas</p>
       <p>Precio: X euros</p>
       <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
     </div>

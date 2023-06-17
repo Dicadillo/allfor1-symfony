@@ -15,7 +15,7 @@ app_contact:
 
 app_profile:
     path: /profile
-    controller: App\Controller\profileController::index
+    controller: App\Controller\ProfileController::index
     methods: [GET]
 
 app_login:
