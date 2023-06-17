@@ -18,25 +18,28 @@
      <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-auto border-e-2">
         <span class="text-white ml-2 text-lg font-semibold">AllFor 1</span>
         </div>
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="flex space-x-4 text-cyan-50" >
+        <ul class="flex space-x-4 text-cyan-50">
             <li class="nav-item">
-                <a class="nav-link" href="#">Inicio</a>
+                <a class="nav-link" href="{{ path('app_inicio') }}">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Actividades</a>
+                <a class="nav-link" href="{{ path('app_activities') }}">Actividades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a>
+                <a class="nav-link" href="{{ path('app_contact') }}">Contacto</a>
             </li>
             <li class="nav-item flex space-x-3">
-                <a class="nav-link" href="#">Profile</a>
-                <a class="nav-link " href="Login">
-                <img src="{{ asset('images/icons8-user-90.png') }}" alt="profile photo" class="h-10 w-auto border-e-2 bg-red-500">. </img>
+                <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
+                <a class="nav-link " href="{{ path('app_login') }}">
+                    <img src="{{ asset('images/icons8-user-90.png') }}" alt="profile photo" class="h-10 w-auto border-e-2 bg-red-500">
                 </a>
             </li>
         </ul>
@@ -51,7 +54,7 @@
         {% block content %}{% endblock %}
     </div>
 
-    <footer class="py-4 px-8 bg-red-500 text-white text-center">
+    <footer class="py-4 px-8 bg-red-500 text-white text-center md:justify-between">
         <p>
             &copy; {{ "now"|date("Y") }} AllFor 1 | 
             <a href="#">Contáctanos</a>
