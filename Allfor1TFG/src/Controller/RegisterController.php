@@ -3,21 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\PasswordHasher\HasherFactoryInterface;
 
 class RegisterController extends AbstractController
 {
-    private $entityManager;
+    private $hasherFactory;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(HasherFactoryInterface $hasherFactory)
     {
-        $this->entityManager = $entityManager;
+        $this->hasherFactory = $hasherFactory;
     }
-
 
     #[Route('/register', name: 'app_register', methods: ['GET', 'POST'])]
     public function registerForm(Request $request): Response
@@ -52,12 +51,15 @@ class RegisterController extends AbstractController
             $user->setPhone($phone);
 
             // Codificar la contraseña antes de almacenarla en la base de datos
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $user->setPassword($hashedPassword);
+            $passwordHasher = $this->hasherFactory->getPasswordHasher(User::class);
+            $encodedPassword = $passwordHasher->hashPassword($user, $password);
+            $user->setPassword($encodedPassword);
+
 
             // Guardar el usuario en la base de datos
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             // Redirigir a la página de inicio de sesión o mostrar un mensaje de éxito
             // Puedes agregar un mensaje flash o personalizar la redirección según tus necesidades
