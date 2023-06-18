@@ -28,3 +28,8 @@ app_show_image:
     path: /images/{imageName}
     controller: App\Controller\ImageController::show
     methods: [GET]
+
+app_register:
+    path: /register
+    controller: App\Controller\RegisterController::registerForm
+

@@ -1,35 +1,27 @@
-{# templates/login/index.html.twig #}
 {% extends 'base.html.twig' %}
-
-{# ... #}
 
 {% block content %}
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-   <div class="min-h-screen bg-red-500 flex justify-center items-center">
-	<div class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
-		<div>
-			<h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Create An Account</h1>
-			<p class="w-80 text-center text-sm mb-8 font-semibold text-gren-700 tracking-wide cursor-pointer">Create an
-				account to enjoy all the services without any ads for free!</p>
-		</div>
-		<div class="space-y-4">
-			<input type="text" placeholder="Email Addres" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
-			<input type="text" placeholder="Password" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
+    <div class="min-h-screen bg-red-500 flex justify-center items-center">
+        <div class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
+            <div>
+                <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Iniciar sesión</h1>
+                <p class="w-80 text-center text-sm mb-8 font-semibold text-green-700 tracking-wide cursor-pointer">Inicia sesión para acceder a tu cuenta</p>
+            </div>
+            <div class="space-y-4">
+                <input type="text" placeholder="Dirección de correo electrónico" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
+                <input type="text" placeholder="Contraseña" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
+            </div>
+            <div class="text-center mt-6">
+                <button class="py-3 w-64 text-xl text-white bg-red-500 rounded-2xl">Iniciar sesión</button>
+                <p class="mt-4 text-sm">¿No tienes una cuenta? <a href="{{ path('app_register') }}" class="underline cursor-pointer">Regístrate</a></p>
+            </div>
+        </div>
+        <div class="w-20 h-40 absolute bg-black rounded-full bottom-20 left-10 transform rotate-45 hidden md:block"></div>
+        <div class="w-40 h-20 absolute bg-white rounded-full bottom-20 right-10 transform rotate-45 hidden md:block"></div>
     </div>
-			<div class="text-center mt-6">
-				<button class="py-3 w-64 text-xl text-white bg-red-500 rounded-2xl">Create Account</button>
-				<p class="mt-4 text-sm">Already Have An Account? <span class="underline cursor-pointer"> Sign In</span>
-				</p>
-			</div>
-		</div>
-		<div
-			class="w-20 h-40 absolute bg-black rounded-full bottom-20 left-10 transform rotate-45 hidden md:block">
-		</div>
-        	<div
-			class="w-40 h-20 absolute bg-white rounded-full bottom-20 right-10 transform rotate-45 hidden md:block">
-		</div>
-	</div>
 {% endblock %}
+
