@@ -1,30 +1,37 @@
 {% extends 'base.html.twig' %}
-
 {% block content %}
 
-<div class="">
-        <h1>Contactanos</h1>
-        <form action="#" method="POST">
-            <label for="name" style="text-align: right;">Nombre:</label>
-            <input type="text" id="name" name="name" required><br>
-            <br>
-            <label for="email" style="text-align: right;">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required><br>
-            <br>
-            <label for="phone" style="text-align: right;">Teléfono:</label>
-            <input type="tel" id="phone" name="phone"><br>
-            <br>
+<div class="mx-auto max-w-md p-8 bg-white rounded-lg shadow">
+    <h1 class="text-2xl font-bold mb-6">Contactanos</h1>
+    <form action="{{ path('app_contact') }}" method="POST">
+        <div class="mb-4">
+            <label for="name" class="text-right">Nombre:</label>
+            <input type="text" id="name" name="name" required class="w-full rounded-lg border-gray-300 border p-2">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="text-right">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required class="w-full rounded-lg border-gray-300 border p-2">
+        </div>
+        <div class="mb-4">
+            <label for="phone" class="text-right">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" class="w-full rounded-lg border-gray-300 border p-2">
+        </div>
+        <div class="mb-4">
             <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" required></textarea><br>
-            <br>
+            <textarea id="message" name="message" required class="w-full rounded-lg border-gray-300 border p-2"></textarea>
+        </div>
+        <div class="mb-4">
             <input type="checkbox" id="terms" name="terms" required>
-            <label for="terms">No soy un robot</label><br>
-            <br>
+            <label for="terms">No soy un robot</label>
+        </div>
+        <div class="mb-4">
             <input type="checkbox" id="terms" name="terms" required>
-            <label for="terms">Acepto las condiciones de uso</label><br>
-    
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+            <label for="terms">Acepto las condiciones de uso</label>
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Enviar</button>
+    </form>
 </div>
+
+
 {% endblock %}

@@ -31,7 +31,7 @@ class ProfileController extends AbstractController
             // Redirigir a la página de perfil con un mensaje de éxito
             $this->addFlash('success', 'Los datos del usuario se han actualizado correctamente.');
             return $this->redirectToRoute('app_profile');
-        }
+        } 
 
         return $this->render('profile/index.html.twig', [
             'user' => $user,

@@ -10,8 +10,9 @@ app_activities:
 
 app_contact:
     path: /contact
-    controller: App\Controller\ContactController::index
+    controller: App\Controller\ContactController::contactForm
     methods: [GET, POST]
+
 
 app_profile:
     path: /profile
