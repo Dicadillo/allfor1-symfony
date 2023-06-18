@@ -7,15 +7,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\HasherFactoryInterface;
 
 class RegisterController extends AbstractController
 {
-    private $passwordEncoder;
+    private $hasherFactory;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(HasherFactoryInterface $hasherFactory)
     {
-        $this->passwordEncoder = $passwordEncoder;
+        $this->hasherFactory = $hasherFactory;
     }
 
     #[Route('/register', name: 'app_register', methods: ['GET', 'POST'])]
@@ -51,8 +51,10 @@ class RegisterController extends AbstractController
             $user->setPhone($phone);
 
             // Codificar la contraseña antes de almacenarla en la base de datos
-            $encodedPassword = $this->passwordEncoder->encodePassword($user, $password);
+            $passwordHasher = $this->hasherFactory->getPasswordHasher(User::class);
+            $encodedPassword = $passwordHasher->hashPassword($user, $password);
             $user->setPassword($encodedPassword);
+
 
             // Guardar el usuario en la base de datos
             $entityManager = $this->getDoctrine()->getManager();
