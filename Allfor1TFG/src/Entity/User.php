@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class User implements UserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,6 +29,9 @@ class User
 
     #[ORM\Column(length: 13, nullable: true)]
     private ?string $phone = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lastname = null;
 
     public function getId(): ?int
     {
@@ -89,6 +94,35 @@ class User
     public function setPhone(?string $phone): static
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+    public function getRoles(): array
+    {
+        // Devuelve los roles asignados al usuario
+        return ['ROLE_USER'];
+    }
+
+    public function eraseCredentials()
+    {
+        // Borra las credenciales sensibles del usuario (ej: la contraseña en texto plano)
+        $this->password = null;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        // Devuelve una cadena que identifique de manera única al usuario (ej: el email)
+        return $this->email;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): static
+    {
+        $this->lastname = $lastname;
 
         return $this;
     }

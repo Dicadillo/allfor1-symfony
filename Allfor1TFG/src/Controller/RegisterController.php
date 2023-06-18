@@ -27,7 +27,7 @@ class RegisterController extends AbstractController
             $email = $request->request->get('email');
             $password = $request->request->get('password');
             $repeatPassword = $request->request->get('repeat_password');
-            $address = $request->request->get('address');
+            $lastname = $request->request->get('lastname');
             $phone = $request->request->get('phone');
 
             // Validar que los campos no estén vacíos
@@ -48,7 +48,7 @@ class RegisterController extends AbstractController
             $user = new User();
             $user->setName($name);
             $user->setEmail($email);
-            $user->setAddress($address);
+            $user->setlastname($lastname);
             $user->setPhone($phone);
 
             // Codificar la contraseña antes de almacenarla en la base de datos
