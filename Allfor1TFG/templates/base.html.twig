@@ -36,15 +36,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_contact') }}">Contacto</a>
             </li>
-            <li class="nav-item flex space-x-3">
-                <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
-                <a class="nav-link " href="{{ path('app_login') }}">
-                    <img src="{{ asset('images/icons8-user-90.png') }}" alt="profile photo" class="h-10 w-auto border-e-2 bg-red-500">
-                </a>
-            </li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item flex space-x-3">
+                    <a class="nav-link" href="{{ path('app_profile') }}">Profile</a>
+                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
+
+
+
 
 
     </header>

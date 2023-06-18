@@ -1,16 +1,13 @@
 <?php
 
-// src/Controller/InicioController.php
-
 namespace App\Controller;
-
 use App\Entity\Activity;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class InicioController extends AbstractController
+class ActivityController extends AbstractController
 {
     private $entityManager;
 
@@ -19,14 +16,15 @@ class InicioController extends AbstractController
         $this->entityManager = $registry->getManager();
     }
 
-    #[Route('/inicio', name: 'app_inicio')]
-    public function index(): Response
+    /**
+    * @Route("/activities", name="app_activities")
+    */
+    public function activities(): Response
     {
-        // Obtén una instancia de Activity desde algún repositorio o base de datos
-        $activity = $this->entityManager->getRepository(Activity::class)->find(1);
+        $activities = $this->entityManager->getRepository(Activity::class)->findAll();
 
-        return $this->render('inicio/index.html.twig', [
-            'activity' => $activity,
+        return $this->render('activities/index.html.twig', [
+            'activities' => $activities,
         ]);
     }
 }

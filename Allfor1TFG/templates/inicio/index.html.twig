@@ -21,8 +21,8 @@
     <div class="bg-white rounded-lg shadow p-4">
       <img src="{{ asset('images/futbol.jpg') }}" alt="Futbol" class="h-32 w-5/12">
       <h3 class="text-xl font-bold mt-4">Fútbol</h3>
-      <p>Duración:  `$get->$horas_futbol_activities`</p>
-      <p>Precio: `$get->price_futbol_activities` euros</p>
+      <p>Duración: {{ activity.duration }} horas</p>
+      <p>Precio: {{ activity.price }} euros</p>
       <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
     </div>
 
@@ -30,8 +30,8 @@
     <div class="bg-white rounded-lg shadow p-4">
       <img src="{{ asset('images/tenis.jpg') }}" alt="Tenis" class="h-32 w-auto margi">
       <h3 class="text-xl font-bold mt-4">Tenis</h3>
-      <p>Duración: `$get->$horas_tenis_activities` horas</p>
-      <p>Precio: X euros</p>
+      <p>Duración: {{ activity.duration }} horas</p>
+      <p>Precio: {{ activity.price }} euros</p>
       <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
     </div>
 
@@ -39,8 +39,8 @@
     <div class="bg-white rounded-lg shadow p-4">
       <img src="{{ asset('images/baloncesto.jpg') }}" alt="Baloncesto" class="h-32 w-auto">
       <h3 class="text-xl font-bold mt-4">Baloncesto</h3>
-      <p>Duración: X horas</p>
-      <p>Precio: X euros</p>
+      <p>Duración: {{ activity.duration }} horas</p>
+      <p>Precio: {{ activity.price }} euros</p>
       <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Reservar ahora</button>
     </div>
   </div>

@@ -5,7 +5,7 @@ app_inicio:
 
 app_activities:
     path: /activities
-    controller: App\Controller\ActivitiesController::index
+    controller: App\Controller\ActivityController::activities
     methods: [GET]
 
 app_contact:
@@ -22,3 +22,8 @@ app_login:
     path: /login
     controller: App\Controller\LoginController::index
     methods: [GET, POST]
+
+app_show_image:
+    path: /images/{imageName}
+    controller: App\Controller\ImageController::show
+    methods: [GET]
