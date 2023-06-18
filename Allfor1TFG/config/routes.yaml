@@ -21,8 +21,9 @@ app_profile:
 
 app_login:
     path: /login
-    controller: App\Controller\LoginController::index
+    controller: App\Controller\LoginController::login
     methods: [GET, POST]
+
 
 app_show_image:
     path: /images/{imageName}
